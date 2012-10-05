@@ -50,7 +50,7 @@ def build_doc(page):
     if page is None:
         LOG.error("Page content is None, can't build_doc")
         return ''
-    if isinstance(page, unicode):
+    if isinstance(page, str):
         page_unicode = page
     else:
         enc = get_encoding(page)
