@@ -1,6 +1,6 @@
 import argparse
 import codecs
-import urllib2
+from urllib.request import build_opener
 from os import mkdir
 from os import path
 
@@ -83,7 +83,7 @@ def make_files(dirname):
 
 def fetch_article(dirname, url):
     """Get the content of the url and make it the article.html"""
-    opener = urllib2.build_opener()
+    opener = build_opener()
     opener.addheaders = [('Accept-Charset', 'utf-8')]
     url_response = opener.open(url)
     dl_html = url_response.read().decode('utf-8')

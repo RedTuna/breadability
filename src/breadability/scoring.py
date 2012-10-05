@@ -38,7 +38,7 @@ def generate_hash_id(node):
     hashed = md5()
     try:
         hashed.update(content.encode('utf-8', "replace"))
-    except Exception, e:
+    except Exception as e:
         LOG.error("BOOM! " + str(e))
 
     return hashed.hexdigest()[0:8]

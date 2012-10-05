@@ -60,7 +60,7 @@ def build_doc(page):
             page_unicode.encode('utf-8', 'replace'),
             parser=utf8_parser)
         return doc
-    except XMLSyntaxError, exc:
+    except XMLSyntaxError as exc:
         LOG.error('Failed to parse: ' + str(exc))
         raise ValueError('Failed to parse document contents.')
 
