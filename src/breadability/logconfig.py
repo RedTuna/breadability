@@ -144,12 +144,13 @@ class _LogFormatter(logging.Formatter):
             fg_color = curses.tigetstr("setaf") or curses.tigetstr("setf") or ""
             fg_color = fg_color.decode('utf-8')
             self._colors = {
-                logging.DEBUG: curses.tparm(fg_color, curses.COLOR_CYAN),
-                logging.INFO: curses.tparm(fg_color, curses.COLOR_GREEN),
-                logging.WARNING: curses.tparm(fg_color, curses.COLOR_YELLOW),  # Yellow
-                logging.ERROR: curses.tparm(fg_color, curses.COLOR_RED),  # Red
+                logging.DEBUG: curses.tparm(fg_color, curses.COLOR_CYAN).decode('utf-8'),
+                logging.INFO: curses.tparm(fg_color, curses.COLOR_GREEN).decode('utf-8'),
+                logging.WARNING: curses.tparm(fg_color, curses.COLOR_YELLOW).decode('utf-8'),  # Yellow
+                logging.ERROR: curses.tparm(fg_color, curses.COLOR_RED).decode('utf-8'),  # Red
             }
             self._normal = curses.tigetstr("sgr0")
+            self._normal = self._normal.decode('utf-8')
 
     def format(self, record):
         try:
