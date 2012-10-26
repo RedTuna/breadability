@@ -142,7 +142,7 @@ class _LogFormatter(logging.Formatter):
             # The explict calls to unicode() below are harmless in python2,
             # but will do the right conversion in python3.
             fg_color = curses.tigetstr("setaf") or curses.tigetstr("setf") or ""
-            fg_color = fg_color.decode('utf-8')
+            fg_color = fg_color
             self._colors = {
                 logging.DEBUG: curses.tparm(fg_color, curses.COLOR_CYAN).decode('utf-8'),
                 logging.INFO: curses.tparm(fg_color, curses.COLOR_GREEN).decode('utf-8'),
